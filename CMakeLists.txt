@@ -26,8 +26,9 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(yaml_cpp_vendor REQUIRED)
 find_package(zstd_vendor REQUIRED)
 find_package(zstd REQUIRED)
+find_package(std_srvs REQUIRED)
 
-rosidl_generate_interfaces(${PROJECT_NAME}
+rosidl_generate_interfaces(${PROJECT_NAME}_interfaces
   msg/CompressedMsg.msg
 )
 
@@ -59,16 +60,17 @@ ament_target_dependencies(${PROJECT_NAME}_lib
   rosidl_typesupport_cpp
   yaml_cpp_vendor
   zstd
+  std_srvs
 )
 
 rosidl_get_typesupport_target(cpp_typesupport_target
-  ${PROJECT_NAME} "rosidl_typesupport_cpp")
+  ${PROJECT_NAME}_interfaces "rosidl_typesupport_cpp")
 target_link_libraries(${PROJECT_NAME}_lib "${cpp_typesupport_target}")
 
 set_target_properties(${PROJECT_NAME}_lib PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
 
 add_executable(${PROJECT_NAME}_exec
-  src/domain_bridge.cpp
+  src/domain_bridge_drone_operator.cpp
 )
 
 ament_target_dependencies(${PROJECT_NAME}_exec
