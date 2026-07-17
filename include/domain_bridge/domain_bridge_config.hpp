@@ -17,6 +17,8 @@
 
 #include <utility>
 #include <vector>
+#include <string>
+#include <tuple>
 
 #include "domain_bridge/domain_bridge_options.hpp"
 #include "domain_bridge/topic_bridge.hpp"
@@ -33,6 +35,9 @@ struct DomainBridgeConfig
 
   /// Topic bridges with options
   std::vector<std::pair<TopicBridge, TopicBridgeOptions>> topics;
+
+  // Service bridges
+  std::vector<std::tuple<std::string, size_t, size_t>> services;
 };
 
 }  // namespace domain_bridge
