@@ -70,7 +70,7 @@ target_link_libraries(${PROJECT_NAME}_lib "${cpp_typesupport_target}")
 set_target_properties(${PROJECT_NAME}_lib PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
 
 add_executable(${PROJECT_NAME}_exec
-  src/domain_bridge_drone_operator.cpp
+  src/domain_bridge.cpp
 )
 
 ament_target_dependencies(${PROJECT_NAME}_exec
