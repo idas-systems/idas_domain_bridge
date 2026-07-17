@@ -5,6 +5,7 @@ Bridges ROS communication between different ROS domain IDs.
 
 See the [design document](doc/design.md) for more details about how the bridge works.
 
+
 ## Prerequisites
 
 - [ROS 2](https://index.ros.org/doc/ros2/Installation) (Galactic or newer)
@@ -97,3 +98,7 @@ Here is an example of including the domain bridge launch script into your own:
 ### C++ library
 
 There is a C++ API that can be integrated into your own process, you can find the [API docs here](https://docs.ros.org/en/ros2_packages/rolling/api/domain_bridge/index.html).
+
+## Added functionalities
+The following list contains the extensions of the original repository:
+- Added the possibility to use services in config files
